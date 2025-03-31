@@ -114,7 +114,7 @@ const Landing = () => {
         {blobs.map((blob, index) => (
           <div
             key={index}
-            className="absolute rounded-full transition-transform duration-[6000ms] ease-out w-screen overflow-hidden"
+            className="absolute rounded-full transition-transform duration-6000 ease-out w-screen overflow-hidden"
             style={{
               left: `${blob.x}%`,
               top: `${blob.y}%`,

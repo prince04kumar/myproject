@@ -12,7 +12,7 @@ module.exports = {
   	extend: {
   		fontFamily: {
   			playfair: [
-  				'Playfair Display"',
+  				'Playfair Display',
   				'serif'
   			]
   		},

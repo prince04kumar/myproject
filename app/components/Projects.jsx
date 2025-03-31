@@ -45,7 +45,7 @@ const ProjectShowcase = () => {
   );
 
   return (
-    <div className="min-h-screen bg-black text-white p-4 md:p-8">
+    <div className="min-h-screen bg-black text-white p-4 md:p-8 relative">
       {/* Header Section */}
       <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-4">
@@ -87,6 +87,8 @@ const ProjectShowcase = () => {
           </div>
         ))}
       </div>
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-700 opacity-20 rounded-full filter blur-3xl"></div>
+      <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-blue-700 opacity-20 rounded-full filter blur-3xl"></div>
     </div>
   );
 };

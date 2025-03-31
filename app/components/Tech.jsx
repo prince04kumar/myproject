@@ -27,23 +27,23 @@ const TechStackSection = () => {
   const renderTechCategory = (category, title) => (
     <div className="mb-16">
       <h3 className="text-xl md:text-2xl mb-6 flex items-center">
-        <span className="text-blue-500 mr-2">/</span> {title}
+        <span className="text-blue-500 mr-2"></span> {title}
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {category.map((tech, index) => (
           <div 
             key={index} 
-            className="bg-[#140521] rounded-lg p-6 transition-all duration-300 hover:bg-[#040C21]"
+            className="bg-[#4e506a98] rounded-lg p-6 transition-all duration-300 hover:bg-[#040C21]"
           >
             <div className="flex items-center mb-4">
-              <div className="w-10 h-10 bg-purple-900/50 rounded-md flex items-center justify-center mr-3 text-2xl">
+              <div className="w-10 h-10 bg-blue-700 rounded-md flex items-center justify-center mr-3 text-2xl">
                 {tech.icon}
               </div>
               <span className="text-white text-lg">{tech.name}</span>
             </div>
-            <div className="h-2 bg-purple-900/30 rounded-full overflow-hidden">
+            <div className="h-2 bg-blue-900/30 rounded-full overflow-hidden">
               <div 
-                className="h-full bg-gradient-to-r from-gray-600 to-red-500" 
+                className="h-full bg-gradient-to-r from-purple-200 to-purple-700" 
                 style={{ width: `${tech.proficiency}%` }}
               />
             </div>
@@ -55,7 +55,7 @@ const TechStackSection = () => {
   );
 
   return (
-    <div className="min-h-screen bg-black text-white py-16 px-4 md:px-8">
+    <div className="min-h-screen bg-black relative text-white py-16 px-4 md:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -73,6 +73,8 @@ const TechStackSection = () => {
         {renderTechCategory(techStack.backend, "Backend")}
         {renderTechCategory(techStack.tools, "Tools & Platforms")}
       </div>
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-700 opacity-20 rounded-full filter blur-3xl"></div>
+      <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-blue-700 opacity-20 rounded-full filter blur-3xl"></div>
     </div>
   );
 };

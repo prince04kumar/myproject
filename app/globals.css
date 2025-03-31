@@ -2,19 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @keyframes pulse-move {
-     0%, 100% {
-       transform: translate(0, 0) scale(1);
-     }
-     50% {
-       transform: translate(10px, 10px) scale(1.1);
-     }
-   }
-   .animate-pulse-move {
-     animation: pulse-move 3s infinite;
+  0% {
+    transform: translate(0, 0) scale(1);
   }
+  25% {
+    transform: translate(20px, -20px) scale(1.05);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(1.1);
+  }
+  75% {
+    transform: translate(20px, 20px) scale(1.05);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+.animate-pulse-move {
+  animation: pulse-move 5s infinite ease-in-out;
+}
+.transition-all {
+  transition-property: all;
+}
+
+.duration-1000 {
+  transition-duration: 1000ms;
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glassmorphism specific styles */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

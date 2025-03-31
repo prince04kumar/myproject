@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { Trash2, Plus, Save, X } from 'lucide-react';
-import { SessionProvider, useSession } from "next-auth/react"; 
 
 
 const Team = () => {
@@ -17,8 +16,6 @@ const Team = () => {
   });
   const [isAddingNew, setIsAddingNew] = useState(false);
 
-  const session = useSession();
-  console.log(session);
 
   useEffect(() => {
     fetchTeamMembers();

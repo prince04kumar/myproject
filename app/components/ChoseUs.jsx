@@ -1,9 +1,10 @@
 import React from 'react';
 import { Wallet, TrendingUp, Calendar } from 'lucide-react';
+import { TerminalDemo } from './Terminal';
 
 const DesignServicesPage = () => {
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 py-16">
+    <div className="min-h-screen bg-black relative text-white flex flex-col items-center justify-center px-4 py-16">
       {/* Main Heading with Playfair Display font */}
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-6">
@@ -18,7 +19,9 @@ const DesignServicesPage = () => {
       </div>
       
       {/* Features Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16 max-w-6xl w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 max-w-6xl w-full">
+        <div>
+          
         {/* Feature 1 */}
         <div className="flex flex-col items-center text-center">
           <div className="mb-6">
@@ -51,7 +54,12 @@ const DesignServicesPage = () => {
             Depend on our reliable team to deliver your projects on time, every time.
           </p>
         </div>
+        
+        </div>
+        <TerminalDemo/>
       </div>
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-700 opacity-20 rounded-full filter blur-3xl"></div>
+      <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-blue-700 opacity-20 rounded-full filter blur-3xl"></div>
     </div>
   );
 };

@@ -131,10 +131,10 @@ const Landing = () => {
 
       <Navbar />  
       <div className="flex flex-col gap-1 items-center justify-center z-30 h-[80%] relative text-white ">
-        <div className=" font-bold mt-6 p-6 flex flex-col justify-center items-center">
-          <span className="font-mono text-3xl md:text-6xl lg:text-8xl">Evaluate Your Brand with</span>
+        <div className=" font-bold mt-6 p-6 flex flex-col justify-center md:items-center">
+          <span className="font-mono text-4xl md:text-6xl lg:text-8xl">Evaluate Your Brand with</span>
           <br />
-          <span className="font-playfair font-bold text-3xl md:text-4xl lg:text-6xl">
+          <span className="font-playfair font-bold text-2xl md:text-4xl lg:text-6xl">
             Subscription Design service
           </span>
         </div>

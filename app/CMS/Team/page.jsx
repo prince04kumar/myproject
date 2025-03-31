@@ -1,9 +1,22 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { Trash2, Plus, Save, X } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 
 const Team = () => {
+
+  const router = useRouter();
+  
+  useEffect(() => {
+  const token = localStorage.getItem('token');
+    if (!token) {
+    router.push('/Loginform'); // Redirect if token is present
+    console.log(token);
+    }
+  }, []);
+
+
   const [teamMembers, setTeamMembers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

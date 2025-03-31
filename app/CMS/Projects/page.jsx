@@ -2,9 +2,20 @@
 import React, { useState, useEffect } from 'react';
 import { Trash2, Edit, Plus, Save, X } from 'lucide-react';
 
+import { useRouter } from 'next/navigation';
 
 const CMSDashboard = () => {
+const router = useRouter();
   
+  useEffect(() => {
+
+
+  const token = localStorage.getItem('token');
+    if (!token) {
+    router.push('/Loginform'); // Redirect if token is present
+    console.log(token);
+    }
+  }, []);
 
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);

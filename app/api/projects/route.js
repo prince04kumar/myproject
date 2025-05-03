@@ -4,13 +4,14 @@ import Project from '../../../lib/models/Project';
 
 // GET all projects
 export async function GET() {
-  try {
+  // try {
     await dbConnect();
+    console.log('Fetching all projects...');
     const projects = await Project.find({});
     return NextResponse.json(projects, { status: 200 });
-  } catch (error) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 400 });
-  }
+  // } catch (error) {
+  //   return NextResponse.json({ success: false, error: error.message }, { status: 400 });
+  // }
 }
 
 // POST a new project

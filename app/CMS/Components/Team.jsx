@@ -8,13 +8,13 @@ const Team = () => {
 
   const router = useRouter();
   
-  useEffect(() => {
-  const token = localStorage.getItem('token');
-    if (!token) {
-    router.push('/Loginform'); // Redirect if token is present
-    console.log(token);
-    }
-  }, []);
+  // useEffect(() => {
+  // const token = localStorage.getItem('token');
+  //   if (!token) {
+  //   router.push('/Loginform'); // Redirect if token is present
+  //   console.log(token);
+  //   }
+  // }, []);
 
 
   const [teamMembers, setTeamMembers] = useState([]);

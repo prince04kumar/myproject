@@ -19,7 +19,7 @@ const Projects = () => {
         const fetchProjects = async ()=>{
             try{
                 setLoading(true);
-                const response = await fetch('/api/Projects');
+                const response = await fetch('/api/projects');
                 if(!response.ok){
                     throw new Error('Failed to fetch projects');
                 }
@@ -42,7 +42,7 @@ const Projects = () => {
         const handleDelete = async (id: string) => {
             try {
                 setLoading(true);
-                const response = await fetch(`/api/Projects?id=${id}`, {
+                const response = await fetch(`/api/projects?id=${id}`, {
                     method: 'DELETE',
                 });
                 
@@ -85,7 +85,7 @@ const Projects = () => {
                     formData.append('Image', imagefile);
                 }
 
-                const response = await fetch("/api/Projects", {
+                const response = await fetch("/api/projects", {
                     method: "POST",
                     body: formData,
                 });
@@ -247,7 +247,7 @@ const handleChange = (e:any) =>{
                                     {/* Image section */}
                                     <div className="md:w-1/4 h-[160px] md:h-[180px] flex-shrink-0 overflow-hidden">
                                         <img 
-                                            src={`/api/Projects/${project.id}`} 
+                                            src={`/api/projects/${project.id}`} 
                                             alt={project.title}
                                             className="w-full h-full object-cover"
                                             onError={(e: React.SyntheticEvent<HTMLImageElement>) => {

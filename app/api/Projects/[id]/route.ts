@@ -4,11 +4,11 @@ import NewProject from '../../../../lib/models/NewProject';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: any
 ) {
   try {
     await dbConnect();
-    const id = params.id;
+    const id = context.params.id;
 
     const project = await NewProject.findById(id);
     

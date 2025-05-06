@@ -11,7 +11,7 @@ const ProjectShowcase = () => {
     const fetchProjects = async () => {
       try {
         setLoading(true);
-        const response = await fetch("/api/Projects");
+        const response = await fetch("/api/projects");
         
         const data = await response.json();
         console.log ("data:" ,data);

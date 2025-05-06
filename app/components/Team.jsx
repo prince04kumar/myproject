@@ -15,7 +15,7 @@ const [Loading , setLoading] = useState(true);
         
         try {
          // setLoading(true);
-          const response = await fetch('/api/Team');
+          const response = await fetch('/api/team');
           if (!response.ok) {
             throw new Error('Failed to fetch projects');
 
@@ -35,40 +35,7 @@ const [Loading , setLoading] = useState(true);
   
       fetchProjects();
     }, []);
-  const teamMembers = [
-    {
-      id: 1,
-      name: 'Alice Johnson',
-      role: 'Creative Director',
-      image: '/api/placeholder/400/320',
-      alt: 'Portrait of Alice Johnson',
-      description: 'Alice brings a wealth of experience in creative direction and design strategy.'
-    },
-    {
-      id: 2,
-      name: 'Michael Smith',
-      role: 'Lead Developer',
-      image: '/api/placeholder/400/320',
-      alt: 'Portrait of Michael Smith',
-      description: 'Michael specializes in building scalable and innovative web applications.'
-    },
-    {
-      id: 3,
-      name: 'Sophia Lee',
-      role: 'Marketing Strategist',
-      image: '/api/placeholder/400/320',
-      alt: 'Portrait of Sophia Lee',
-      description: 'Sophia crafts marketing strategies that drive engagement and growth.'
-    },
-    {
-      id: 4,
-      name: 'James Brown',
-      role: 'UI/UX Designer',
-      image: '/api/placeholder/400/320',
-      alt: 'Portrait of James Brown',
-      description: 'James focuses on creating intuitive and visually stunning user experiences.'
-    }
-  ];
+  
   if(Loading) return (
     <div className='min-h-screen bg-black text-white p-4 md:p-8'>
         <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12">

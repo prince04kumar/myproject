@@ -3,14 +3,14 @@ import dbConnect from '../../../../lib/dbconnect';
 import NewProject from '../../../../lib/models/Team';
 
 
-interface Params {
-    params: { id: string }
-  }
-  
-  export async function GET(request: NextRequest, context: Params) {
+
+export async function GET(
+    request: NextRequest,
+    { params }: { params: { id: string } }
+  ) {
     try {
       await dbConnect();
-      const id = context.params.id;
+      const id = params.id;
   
       const project = await NewProject.findById(id);
       

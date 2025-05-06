@@ -2,22 +2,21 @@ import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '../../../../lib/dbconnect';
 import NewProject from '../../../../lib/models/NewProject';
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+interface Params {
+  params: { id: string }
+}
+
+export async function GET(request: NextRequest, context: Params) {
   try {
     await dbConnect();
-    const id = params.id;
+    const id = context.params.id;
 
-    // Find project by ID
     const project = await NewProject.findById(id);
     
     if (!project || !project.image || !project.image.data) {
       return new NextResponse('Image not found', { status: 404 });
     }
 
-    // Return the image with the appropriate content type
     return new NextResponse(project.image.data, {
       status: 200,
       headers: {

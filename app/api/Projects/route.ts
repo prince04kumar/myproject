@@ -5,7 +5,7 @@ import NewProject from '../../../lib/models/NewProject';
 
 // GET all projects
 export async function GET() {
-  // try {
+  try{
     await dbConnect();
     console.log('Fetching all projects...');
     const projects = (await NewProject.find({}));
@@ -17,22 +17,16 @@ export async function GET() {
     }));
     console.log('Fetched projects:', transformedImages);
     return NextResponse.json({projects:transformedImages}, { status: 200 });
-  // } catch (error) {
-  //   return NextResponse.json({ success: false, error: error.message }, { status: 400 });
-  // }
+  }
+
+  catch (error) {
+    return NextResponse.json({
+      message: "Error getting image", 
+      error: error instanceof Error ? error.message : 'An unknown error occurred'
+    }, {status: 500});  }
+  
 }
 
-// POST a new project
-// export async function POST(req) {
-//   try {
-//     await dbConnect();
-//     const body = await req.json();
-//     const project = await Project.create(body);
-//     return NextResponse.json(project, { status: 201 });
-//   } catch (error) {
-//     return NextResponse.json({ success: false, error: error.message }, { status: 400 });
-//   }
-// }
 
 
 
@@ -105,34 +99,4 @@ export async function DELETE(request: Request) {
     return NextResponse.json({ success: false, error: error.message }, { status: 400 });
   }
 }
-
-// // PUT (update) a project
-// export async function PUT(req : Request) {
-//   try {
-//     await dbConnect();
-//     const body = await req.json();
-//     const { id, ...updates } = body; // Extract `id` and update fields
-//     console.log(id);
-
-//     if (!id) {
-//       return NextResponse.json({ success: false, error: 'Project ID is required' }, { status: 400 });
-//     }
-
-//     if (!Object.keys(updates).length) {
-//       return NextResponse.json({ success: false, error: 'No updates provided' }, { status: 400 });
-//     }
-
-//     const updatedProject = await Project.findByIdAndUpdate(id, updates, { new: true, runValidators: true }).lean();
-
-//     if (!updatedProject) {
-//       return NextResponse.json({ success: false, error: 'Project not found' }, { status: 404 });
-//     }
-
-//     return NextResponse.json(updatedProject, { status: 200 });
-//   } catch (error:any) {
-//     console.error('Error updating project:', error);
-//     return NextResponse.json({ success: false, error: error.message }, { status: 400 });
-//   }
-// }
-
 

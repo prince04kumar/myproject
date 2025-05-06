@@ -98,28 +98,7 @@ const [Loading , setLoading] = useState(true);
       </div>
 
       {/* Team Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
-        {data.map((member) => (
-          <div 
-            key={member._id} 
-            className="relative group overflow-hidden rounded-lg bg-gray-800 aspect-[4/3] p-4"
-          >
-            {/* Member Image */}
-            <img
-              src={member.image}
-              alt={member.alt}
-              className="w-full h-2/3 object-cover rounded-lg mb-4"
-            />
-            
-            {/* Member Info */}
-            <div className="text-center">
-              <h3 className="text-xl font-serif text-white">{member.Name}</h3>
-              <p className="text-sm text-gray-400">{member.Role}</p>
-              <p className="text-xs text-gray-500 mt-2">Exp : {member.Exp}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+     
     </div>
   );
 };

@@ -11,18 +11,16 @@ const ProjectShowcase = () => {
     const fetchProjects = async () => {
       try {
         setLoading(true);
-        const response = await fetch('/api/projects');
-        if (!response.ok) {
-          throw new Error('Failed to fetch projects');
-        }
+        const response = await fetch("/api/Projects");
+        
         const data = await response.json();
-        console.log(data);
-        setProjects(data);
+        console.log ("data:" ,data);
+        setProjects(data.projects || []);
+        console.log(typeof data);
+
       } catch (err) {
         setError(err.message);
         console.error('Error fetching projects:', err);
-
-
         
       } finally {
         setLoading(false);
@@ -61,20 +59,25 @@ const ProjectShowcase = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
         {projects.map((project) => (
           <div 
-            key={project._id} 
+            key={project.id} 
             className="relative group overflow-hidden rounded-lg bg-gray-900 aspect-[4/3]"
           >
-            {/* Project Image */}
+            {/* Project Image - Fixed the image URL */}
             <img
-              src={project.alt || '/api/placeholder/400/320'}
-              alt={project.alt}
+              src={`/api/Projects/${project.id}`}
+              alt={project.title || "Project image"}
               className="w-full h-full object-cover"
+              onError={(e) => {
+                console.error(`Failed to load image for project: ${project.id}`);
+                e.target.src = '/digitalCube.png'; // Fallback image
+                e.target.className = "w-full h-full object-contain bg-gray-800";
+              }}
             />
             
             {/* Project Info */}
-            <div className="absolute bottom-0 left-0 p-4 flex flex-col justify-end">
+            <div className="absolute bottom-0 left-0 p-4 flex flex-col justify-end bg-gradient-to-t from-black/70 to-transparent w-full">
               <h3 className="text-xl font-serif">{project.title}</h3>
-              <p className="text-sm text-gray-300">{project.category}</p>
+              <p className="text-sm text-gray-300">{project.description}</p>
             </div>
             
             {/* Arrow Icon */}

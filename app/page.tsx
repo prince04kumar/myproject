@@ -6,6 +6,7 @@ import Customers from './components/Customers';
 import Team from './components/Team'
 import Tech from  './components/Tech'
 import ContactUs from './components/ContactUs'
+import Testimage from "./components/Testimage";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
   <Team/>
   <Tech/>
   <ContactUs/>
+
    </>
     
   );

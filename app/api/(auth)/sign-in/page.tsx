@@ -24,7 +24,7 @@ function SignIn() {
     const fetchAdminData = async (): Promise<Admin[] | null> => {
         try {
             console.log("Fetching admin data...");
-            const response = await axios.get("/api/Admin");
+            const response = await axios.get("/api/admin");
            
             return response.data;
         } catch (error) {

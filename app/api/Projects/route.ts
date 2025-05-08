@@ -100,3 +100,4 @@ export async function DELETE(request: Request) {
   }
 }
 
+// this is for test for image

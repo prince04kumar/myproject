@@ -28,3 +28,6 @@ export async function GET(
     return new NextResponse('Error fetching image', { status: 500 });
   }
 }
+
+// this is for change
+// export async function PUT(request: NextRequest, context: any) {

@@ -29,18 +29,20 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      {isMenuOpen && (
-        <div 
-          className='flex flex-col items-center gap-4 bg-black bg-opacity-90 backdrop-blur p-5 rounded-lg m-3 md:hidden'
-        >
-          <h3 className='cursor-pointer hover:text-gray-300 transition'>Why Us</h3>
-          <h3 className='cursor-pointer hover:text-gray-300 transition'>Projects</h3>
-          <h3 className='cursor-pointer hover:text-gray-300 transition'>Testimonials</h3>
-          <h3 className='cursor-pointer hover:text-gray-300 transition'>Teams</h3>
-          <h3 className='cursor-pointer hover:text-gray-300 transition'>Pricing</h3>
-          <h3 className='cursor-pointer hover:text-gray-300 transition'>FAQ</h3>
-        </div>
-      )}
+      <div 
+        className={`
+          md:hidden flex flex-col items-center gap-4 bg-black bg-opacity-90 
+          backdrop-blur p-5 rounded-lg mx-3 overflow-hidden transition-all duration-300 ease-in-out
+          ${isMenuOpen ? 'max-h-[300px] opacity-100 mb-3' : 'max-h-0 opacity-0 p-0'}
+        `}
+      >
+        <h3 className='cursor-pointer hover:text-gray-300 transition'>Why Us</h3>
+        <h3 className='cursor-pointer hover:text-gray-300 transition'>Projects</h3>
+        <h3 className='cursor-pointer hover:text-gray-300 transition'>Testimonials</h3>
+        <h3 className='cursor-pointer hover:text-gray-300 transition'>Teams</h3>
+        <h3 className='cursor-pointer hover:text-gray-300 transition'>Pricing</h3>
+        <h3 className='cursor-pointer hover:text-gray-300 transition'>FAQ</h3>
+      </div>
     </div>
   )
 }

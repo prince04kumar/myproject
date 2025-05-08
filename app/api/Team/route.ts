@@ -103,33 +103,4 @@ export async function DELETE(request: Request) {
   }
 }
 
-// // PUT (update) a project
-// export async function PUT(req : Request) {
-//   try {
-//     await dbConnect();
-//     const body = await req.json();
-//     const { id, ...updates } = body; // Extract `id` and update fields
-//     console.log(id);
-
-//     if (!id) {
-//       return NextResponse.json({ success: false, error: 'Project ID is required' }, { status: 400 });
-//     }
-
-//     if (!Object.keys(updates).length) {
-//       return NextResponse.json({ success: false, error: 'No updates provided' }, { status: 400 });
-//     }
-
-//     const updatedProject = await Project.findByIdAndUpdate(id, updates, { new: true, runValidators: true }).lean();
-
-//     if (!updatedProject) {
-//       return NextResponse.json({ success: false, error: 'Project not found' }, { status: 404 });
-//     }
-
-//     return NextResponse.json(updatedProject, { status: 200 });
-//   } catch (error:any) {
-//     console.error('Error updating project:', error);
-//     return NextResponse.json({ success: false, error: error.message }, { status: 400 });
-//   }
-// }
-
-
+// no put request yet

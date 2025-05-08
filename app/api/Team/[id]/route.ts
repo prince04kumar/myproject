@@ -28,3 +28,5 @@ export async function GET(
     return new NextResponse('Error fetching image', { status: 500 });
   }
 }
+
+// want to dosomething good 
